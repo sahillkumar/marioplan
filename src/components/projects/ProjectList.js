@@ -1,12 +1,14 @@
 import React from 'react'
 import ProjectCard from './ProjectCard'
 
-function ProjectList() {
+function ProjectList({ projects }) {
     return (
         <div className="p-5">
-            <ProjectCard/>
-            <ProjectCard/>
-            <ProjectCard/>
+            {
+                projects && projects.map(project =>(
+                    <ProjectCard project={project} key={project.id}/>
+                ))
+            }
         </div>
     )
 }

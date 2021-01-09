@@ -5,7 +5,7 @@ function SignedInLinks() {
     return (
         <>
             <li className="nav-item">
-                <NavLink className="nav-link" to="/"> New Project</NavLink>
+                <NavLink className="nav-link" to="/project/create"> New Project</NavLink>
             </li>
             <li className="nav-item">
                 <NavLink className="nav-link" to="/"> Log Out</NavLink>
