@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { signIn } from '../../redux/actions/authActions'
 
 class SignIn extends Component {
 
@@ -15,7 +17,8 @@ class SignIn extends Component {
 
     handleSubmit = (e) =>{
         e.preventDefault()
-        console.log(this.state);
+        // console.log(this.state);
+        this.props.signIn(this.state)
         this.setState({
             email:'',
             password:''
@@ -23,10 +26,18 @@ class SignIn extends Component {
     }
 
     render() {
-        const {email,password} = this.state
+        const {email,password,err} = this.state
+        const { authErr } = this.props
         return (
             <div className="container col-6 offset-3">
-                <h2 className="display-3 my-5 text-center">Sign In </h2>
+                <h2 className="display-3 my-5 text-center">Log In </h2>
+                {
+                    authErr ? (
+                        <div className="bg-danger text-center text-white">
+                            {authErr}
+                        </div>
+                    ) : null
+                }
                 <form>
                     <div className="form-group">
                         <input 
@@ -49,8 +60,7 @@ class SignIn extends Component {
                         />
                     </div>
                     <div className="text-center">
-                    <div className=" btn btn-secondary form-control mt-3" type="submit" onClick={this.handleSubmit}>Sign In</div>
-
+                        <div className=" btn btn-secondary form-control mt-3" type="submit" onClick={this.handleSubmit}>Log In</div>
                     </div>
                 </form>
             </div>
@@ -58,4 +68,16 @@ class SignIn extends Component {
     }
 }
 
-export default SignIn
+const mapStateToProps = (state) =>{
+    return{
+        authErr:state.auth.authErr
+    }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        signIn: (creds) => dispatch(signIn(creds))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SignIn)

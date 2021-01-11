@@ -1,12 +1,15 @@
 import React from 'react'
 import ProjectCard from './ProjectCard'
+import { Link } from "react-router-dom";
 
 function ProjectList({ projects }) {
     return (
         <div className="p-5">
             {
                 projects && projects.map(project =>(
-                    <ProjectCard project={project} key={project.id}/>
+                    <Link to={`/project/${project.id}`}  key={project.id}>
+                        <ProjectCard project={project}/>
+                    </Link>
                 ))
             }
         </div>

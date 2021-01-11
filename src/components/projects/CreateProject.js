@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { createProject } from '../../redux/actions/projectActions'
 
 class CreateProject extends Component {
 
@@ -15,7 +17,8 @@ class CreateProject extends Component {
 
     handleSubmit = (e) =>{
         e.preventDefault()
-        console.log(this.state);
+        // console.log(this.state);
+        this.props.createProject(this.state)
         this.setState({
             title:'',
             content:''
@@ -50,7 +53,6 @@ class CreateProject extends Component {
                     </div>
                     <div className="text-center">
                     <div className=" btn btn-secondary form-control mt-3" type="submit" onClick={this.handleSubmit}>Add Project</div>
-
                     </div>
                 </form>
             </div>
@@ -58,4 +60,10 @@ class CreateProject extends Component {
     }
 }
 
-export default CreateProject
+const mapDispatchToProps = ( dispatch ) =>{
+    return{
+        createProject:(project) => dispatch(createProject(project))
+    }
+}
+
+export default connect(null,mapDispatchToProps)(CreateProject)
