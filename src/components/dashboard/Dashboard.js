@@ -13,10 +13,10 @@ class Dashboard extends Component {
         return (
             <div className="container">
                 <div className='row'>
-                    <div className="col col-md-6 bg-warning">
+                    <div className="col col-md-6">
                         <ProjectList projects = {projects}/>
                     </div>
-                    <div className="col col-md-5 offset-md-1 bg-info">
+                    <div className="col col-md-5 offset-md-1">
                         <Notifications/>
                     </div>
                 </div>

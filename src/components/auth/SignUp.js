@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { signUp } from '../../redux/actions/authActions'
 
 class SignUp extends Component {
 
@@ -17,7 +19,8 @@ class SignUp extends Component {
 
     handleSubmit = (e) =>{
         e.preventDefault()
-        console.log(this.state);
+        // console.log(this.state);
+        this.props.signUp(this.state)
         this.setState({
             firstname:'',
             lastname:'',
@@ -28,9 +31,17 @@ class SignUp extends Component {
 
     render() {
         const { firstname,lastname,email,password} = this.state
+        const { authErr } = this.props
         return (
             <div className="container col-6 offset-3">
                 <h2 className="display-3 my-5 text-center">Sign Up </h2>
+                {
+                    authErr ? (
+                        <div className="bg-danger text-center text-white">
+                            {authErr}
+                        </div>
+                    ) : null
+                }
                 <form>
                     <div className="form-group">
                         <input 
@@ -71,13 +82,23 @@ class SignUp extends Component {
                         />
                     </div>
                     <div className="text-center">
-                    <div className=" btn btn-secondary form-control mt-3" type="submit" onClick={this.handleSubmit}>Sign Up</div>
-
+                        <div className=" btn btn-secondary form-control mt-3" type="submit" onClick={this.handleSubmit}>Sign Up</div>   
                     </div>
                 </form>
             </div>
         )
     }
 }
+const mapStateToProps = (state) =>{
+    return{
+        authErr:state.auth.authErr
+    }
+}
 
-export default SignUp
+const mapDispatchToProps = ( dispatch ) =>{
+    return{
+        signUp : (newUser) => dispatch(signUp(newUser))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps) (SignUp)

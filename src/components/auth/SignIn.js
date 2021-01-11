@@ -33,7 +33,7 @@ class SignIn extends Component {
                 <h2 className="display-3 my-5 text-center">Log In </h2>
                 {
                     authErr ? (
-                        <div className="bg-danger text-center text-white">
+                        <div className="bg-danger text-center text-white mb-4">
                             {authErr}
                         </div>
                     ) : null

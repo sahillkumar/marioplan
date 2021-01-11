@@ -1,5 +1,5 @@
 const initState = {
-    authErr:''
+    authErr:null
 }
 
 const authReducer = ( state = initState, action )=>{
@@ -9,10 +9,16 @@ const authReducer = ( state = initState, action )=>{
             return {...state,authErr:null}
         case 'LOGIN_FAILED':
             console.log('signIn failed');
-            return {...state,authErr:'Login Failed'}
+            return {...state,authErr:action.err.message}
         case 'SIGNOUT_SUCCESS':
             console.log('signout success');
             return state
+        case 'SIGNUP_SUCCESS':
+            console.log('signup successfull');
+            return {...state,authErr:null}
+        case 'SIGNUP_ERROR':
+            console.log('signup failed');
+            return {...state,authErr:action.err.message}
         default:
             return state;
     }

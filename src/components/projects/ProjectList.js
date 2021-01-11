@@ -7,7 +7,7 @@ function ProjectList({ projects }) {
         <div className="p-5">
             {
                 projects && projects.map(project =>(
-                    <Link to={`/project/${project.id}`}  key={project.id}>
+                    <Link to={`/project/${project.id}`}  key={project.id} className="text-decoration-none text-reset">
                         <ProjectCard project={project}/>
                     </Link>
                 ))

@@ -10,7 +10,7 @@ function ProjectDetails(props) {
             <div className="card col-8 offset-2 mt-5">
                 <div className="card-header">posted by - {project.authorFirstname}</div>
                 <div className="card-body">
-                    <h5 className="card-title">project - {project.title}</h5>
+                    <h4 className="card-title">project - {project.title}</h4>
                     <p className="card-text">{project.content}</p>
                 </div>
             </div>

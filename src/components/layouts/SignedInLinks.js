@@ -10,7 +10,7 @@ function SignedInLinks(props) {
                 <NavLink className="nav-link" to="/project/create"> New Project</NavLink>
             </li>
             <li className="nav-item">
-                <div className="nav-link text-white" onClick={props.signOut}> Log Out</div>
+                <div className="btn nav-link" onClick={props.signOut} style={{background:'transparent'}}> Log Out</div>
             </li>
             <li className="nav-item">
                 <NavLink to="/" className="nav-link btn btn-danger m-auto" style={{ height:50, width:50, borderRadius:'50%',padding:'10px'}}>SK</NavLink>

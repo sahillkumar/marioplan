@@ -5,10 +5,10 @@ function SignedOutLinks() {
     return (
         <>
             <li className="nav-item">
-                <NavLink className="nav-link text-white" to="/signup"> Sign Up</NavLink>
+                <NavLink className="nav-link" to="/signup"> Sign Up</NavLink>
             </li>
             <li className="nav-item">
-                <NavLink className="nav-link text-white" to="/signin"> Log In</NavLink>
+                <NavLink className="nav-link" to="/signin"> Log In</NavLink>
             </li>
         </>
     )

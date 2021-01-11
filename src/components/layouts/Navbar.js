@@ -6,12 +6,13 @@ import SignedOutLinks from './SignedOutLinks'
 
 function Navbar(props) {
     const links = props.auth.uid ? <SignedInLinks/> : <SignedOutLinks/>
+    // console.log(props.auth);
     return (
-        <div className="navbar bg-dark navbar-expand-lg">
+        <div className="navbar bg-dark navbar-dark navbar-expand-lg">
              <div className="container-fluid">
                 <Link className="navbar-brand" to="/">MarioPlan</Link>
                 <div className="navbar-nav">
-                    { links }
+                    { props.auth.isLoaded ? links : null }
                 </div>
             </div>
         </div>
