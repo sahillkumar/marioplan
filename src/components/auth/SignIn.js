@@ -26,7 +26,7 @@ class SignIn extends Component {
     }
 
     render() {
-        const {email,password,err} = this.state
+        const {email,password} = this.state
         const { authErr } = this.props
         return (
             <div className="container col-6 offset-3">

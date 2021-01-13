@@ -48,6 +48,14 @@ export const signUp = (newUser) =>{
             })
         })
         .then(()=>{
+            return  firestore.collection('notifications')
+                .add({
+                    content :'joined the party',
+                    user:`${newUser.firstname} ${newUser.lastname}`,
+                    time:new Date()
+                })
+        })
+        .then(()=>{
             dispatch({
                 type:'SIGNUP_SUCCESS'
             })

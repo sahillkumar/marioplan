@@ -2,16 +2,20 @@ import React from 'react'
 import { firestoreConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux'
 import { compose } from 'redux';
-
+import moment from 'moment'
 function ProjectDetails(props) {
     const { project } = props
     if(project){
         return(
-            <div className="card col-8 offset-2 mt-5">
-                <div className="card-header">posted by - {project.authorFirstname}</div>
+            <div className="card col-8 offset-2 mt-5 p-2">
                 <div className="card-body">
-                    <h4 className="card-title">project - {project.title}</h4>
+                    <h4 className="card-title text-capitalize"> {project.title} </h4>
+                    <hr/>
                     <p className="card-text">{project.content}</p>
+                    <hr/>
+                    <span className="text-muted text-capitalize">
+                        Posted By : {project.authorFirstname} {project.authorLastname} - { moment(project.createdAt.toDate()).calendar()}
+                    </span>
                 </div>
             </div>
         )

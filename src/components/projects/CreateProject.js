@@ -19,10 +19,8 @@ class CreateProject extends Component {
         e.preventDefault()
         // console.log(this.state);
         this.props.createProject(this.state)
-        this.setState({
-            title:'',
-            content:''
-        })
+        this.props.history.push("/")
+
     }
 
     render() {
@@ -52,7 +50,16 @@ class CreateProject extends Component {
                         />
                     </div>
                     <div className="text-center">
-                    <div className=" btn btn-secondary form-control mt-3" type="submit" onClick={this.handleSubmit}>Add Project</div>
+                    <button 
+                    className=" btn btn-secondary form-control mt-3" 
+                    type="submit" 
+                    onClick={this.handleSubmit}
+                    style = {{
+                        pointerEvents: (!title || !content) ? 'none' :null,
+                    }}
+                    >
+                        Add Project
+                        </button>
                     </div>
                 </form>
             </div>

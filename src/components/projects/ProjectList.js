@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function ProjectList({ projects }) {
     return (
-        <div className="p-5">
+        <div className="p-2 mt-5">
             {
                 projects && projects.map(project =>(
                     <Link to={`/project/${project.id}`}  key={project.id} className="text-decoration-none text-reset">

@@ -13,7 +13,7 @@ function SignedInLinks(props) {
                 <div className="btn nav-link" onClick={props.signOut} style={{background:'transparent'}}> Log Out</div>
             </li>
             <li className="nav-item">
-                <NavLink to="/" className="nav-link btn btn-danger m-auto" style={{ height:50, width:50, borderRadius:'50%',padding:'10px'}}>SK</NavLink>
+                <NavLink to="/" className="nav-link btn btn-danger m-auto text-uppercase" style={{ height:50, width:50, borderRadius:'50%',padding:'10px'}}>{props.profile.initials}</NavLink>
             </li>
         </>
     )
